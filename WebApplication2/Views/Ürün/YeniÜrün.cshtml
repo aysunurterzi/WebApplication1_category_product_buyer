@@ -1,0 +1,44 @@
+﻿@model WebApplication2.Models.Entity.tabloürünler
+@{
+    ViewBag.Title = "YeniÜrün";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+
+    <div>
+        <label>Ürün Adı</label>
+        <input type="text" class="form-control" name="ürünadi" value="" required="" placeholder="Ürün Adını Yazınız"/>
+
+    </div>
+    <div>
+        <label>Marka</label>
+        <input type="text" class="form-control" name="marka" value="" required="" placeholder="Markasını Yazınız"/>
+
+    </div>
+
+    <div>
+        <label>Kategori</label>
+        @Html.DropDownListFor(m=>m.tablokategoriler.kategoriid,(List<SelectListItem>)ViewBag.dgr, new { @class="form-control"})
+
+    </div>
+    <div>
+        <label>Fiyat</label>
+        <input type="text" class="form-control" name="fiyat" value="" required="" placeholder="Fiyatını Yazınız"/>
+
+    </div>
+    <div>
+        <label>Stok</label>
+        <input type="text" class="form-control" name="stok" value="" required="" placeholder="Stok Adedini Yazınız"/>
+
+    </div>
+
+    <div style="margin-top:15px">
+        <button class="btn btn-info">Ürün Ekle</button>
+    </div>
+
+
+
+</form>
+
+

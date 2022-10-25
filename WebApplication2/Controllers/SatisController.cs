@@ -26,7 +26,7 @@ namespace WebApplication2.Controllers
         {
             db.tablosatislar.Add(p);
             db.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
 
     }

@@ -11,7 +11,8 @@ namespace WebApplication2.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tabloürünler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,7 @@ namespace WebApplication2.Models.Entity
         }
     
         public int ürünid { get; set; }
+       
         public string ürünadi { get; set; }
         public string marka { get; set; }
         public Nullable<short> ürünkategori { get; set; }

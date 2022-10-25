@@ -11,7 +11,8 @@ namespace WebApplication2.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tablokategoriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace WebApplication2.Models.Entity
         }
     
         public short kategoriid { get; set; }
+
+        [Required (ErrorMessage ="Katagori Adını Giriniz")]
         public string kategoriad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,7 +11,8 @@ namespace WebApplication2.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tablomüsteriler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,9 @@ namespace WebApplication2.Models.Entity
         }
     
         public int müsteriid { get; set; }
+        [Required(ErrorMessage = "Müşteri Adını Giriniz")]
         public string müsteriad { get; set; }
+        [Required(ErrorMessage = " Müşteri Soyadını Giriniz")]
         public string müsterisoyad { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

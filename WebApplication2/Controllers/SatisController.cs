@@ -15,6 +15,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public ActionResult YeniSatis()
         {

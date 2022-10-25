@@ -1,12 +1,40 @@
-﻿@model WebApplication2.Models.Entity.tablosatislar
+﻿@using WebApplication2.Models.Entity
+@model WebApplication2.Models.Entity.tablosatislar
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
-    Satış Yap
-</button>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">
+        Satış Yap
+    </button>
+
+
+@*<table class="table table-bordered">
+    <tr>
+        <th>SATIŞ NO</th>
+        <th>ÜRÜN ADI</th>
+        <th>MÜŞTERİ</th>
+        <th>ADETİ</th>
+        <th>FİYAT</th>
+    </tr>
+    <tbody>
+        @foreach (var sts in Model)
+        {
+            <tr>
+                <th>@sts.satisid</th>
+                <td>@sts.ürün</td>
+                <td>@sts.müsteri</td>
+                <td>@sts.adet</td>
+                <td>@sts.fiyat</td>
+            </tr>
+        }
+
+    </tbody>
+</table>*@
+
 <div class="modal" id="Modal1">
     <div class="modal-dialog">
         <div class="modal-content">

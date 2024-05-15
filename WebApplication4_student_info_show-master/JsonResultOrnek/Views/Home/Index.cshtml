@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container">
+    <div class="row justify-content-md-center" >
+        <div class="col col-lg-3" style="border-color: black; border-style:dotted; padding: 20px;  margin: 20px;">
+            <p>Öğrenci No</p>
+            <input type="text" id="studentID" />
+            <br />
+            <br />
+            <input id="GetStudent" type="button" value="Görüntüle" />
+            <br />
+        </div>
+        <div class="col col-lg-3" style="border-color: black; border-style:dotted; padding: 20px;  margin: 20px;">
+            <p><b>Öğrenci Adı:</b></p>
+            <p id="studentName"></p>
+            <p><b>Öğrenci Soyadı:</b></p>
+            <p id="studentLastName"></p>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col col-lg-3" style="border-color: black; border-style:dotted; padding: 20px;  margin: 20px;">
+            <input id="GetStudentAll" type="button" value="Tümünü Listele" />
+            <div>  
+                <br />  
+            <div id="studentListMain"></div>
+        </div>
+        </div>
+        s
+    </div>
+</div>
+@section scripts
+  {  <script type="text/javascript">
+
+      $(document).ready(function () {
+          $("#GetStudent").click(function () {
+              var id = $("#studentID").val(); // kullanıcının girdiği numrayı çekme işlemi
+              $.ajax({
+                  url: '/Home/GetStudent/' + id,
+                  type: 'POST',
+                  dataType: 'json',
+                  success: function (data) {
+                      $("#studentName").html(data.Name);
+                      $("#studentLastName").html(data.LastName);
+                  }
+              });
+          });
+
+          $("#GetStudentAll").click(function () {
+              $.ajax({
+                  url: '/Home/GetStudentAll/',
+                  type: 'POST',
+                  dataType: 'json',
+                  success: function (data) {
+                      $.each(data, function (i, item) {
+                          $("#studentListMain").append(item.ID + "- " + item.Name + " " + item.LastName + "<br>")
+                      });
+
+
+
+
+                  }
+
+              });
+
+          });
+
+
+
+      });
+    </script>
+ }

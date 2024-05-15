@@ -1,0 +1,24 @@
+﻿@model WebApplication2.Models.Entity.tablomüsteriler
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("MÜŞTERİ ID")
+    @Html.TextBoxFor(m => m.müsteriid, new { @class = "form-control" })
+    <br />
+    @Html.Label("MÜŞTERİ ADI")
+    @Html.TextBoxFor(m => m.müsteriad, new { @class = "form-control" })
+    <br />
+    @Html.Label("MÜŞTERİ SOYADI")
+    @Html.TextBoxFor(m => m.müsterisoyad, new { @class = "form-control" })
+</div>
+    <div>
+        <button class="btn btn-warning">Müşteri Güncelle</button>
+    </div>
+}
+            

@@ -1,0 +1,67 @@
+﻿@model WebApplication1.ViewModel.UserCreateViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+<br />
+@using (Ajax.BeginForm("Create", "AjaxBegin", FormMethod.Post, new AjaxOptions { OnSuccess = "success", LoadingElementId = "loading" })) //onsuccess: formumuz başarılı bir şekilde gitti verileri aldı ve geri döndüyse bu method çalışacak success adında js fonksiyonu yazıcaz
+{
+<div class="container">
+    <div class="row justify-content-center">
+        <div style="background-color:lightseagreen; width:auto; height:auto">
+            <div class="col col-auto" style="border-color: black; border-style:dotted; padding: 20px;  margin: 20px;">
+                <h2>Yeni Kullanıcı</h2>
+                <p style="margin-bottom:5px;">Ad:</p>
+                @Html.TextBoxFor(m => m.UserName)
+                <br />
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @style = "color:red" })
+
+                <p style="margin-bottom:5px;">Soyad:</p>
+                @Html.TextBoxFor(m => m.UserSurname)
+                <br />
+                @Html.ValidationMessageFor(m => m.UserSurname, "", new { @style = "color:red" })
+
+                <p style="margin-bottom:5px;">Şehir:</p>
+                @Html.TextBoxFor(m => m.City)
+                <br />
+                @Html.ValidationMessageFor(m => m.City, "", new { @style = "color:red" })
+
+                <div class="col-auto" style=" margin-top:20px;">
+                    <input type="submit" value="Kaydet" />
+                </div>
+                <div id="loading" style="display:none">
+                    <br />
+                    Kaydediliyor............
+                </div>
+                <br />
+                <div id="userMessage"> </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+  </div>
+
+
+
+
+    }
+
+    @section scripts
+{
+        <script type="text/javascript">
+            function success(result) {
+                if (result.IsSuccess == true) {
+                    $("form")[0].reset();
+                }
+                $("#userMessage").html(result.UserMessage);
+            }
+
+            
+        </script>
+    }
